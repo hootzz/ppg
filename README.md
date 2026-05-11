@@ -98,7 +98,7 @@ python papagei-s.py
 
 ## Output
 
-- `OUTPUT`에 지정한 `.npz` 파일 생성
+- `OUTPUT`에 지정한 `.npy` 파일 생성
 
 - 저장 값
 
