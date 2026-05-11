@@ -14,7 +14,7 @@
   - PPG 전처리 수행
   - PaPaGEI 입력 형태인 1250-sample window 생성
 
-- `papagei_embedding.py` - embedding 추출만 진행
+- `papagei-s, papagei-p.py` - embedding 추출만 진행
   - `processed_*.csv` 로드
   - PaPaGEI 모델 로드
   - embedding 추출
@@ -82,51 +82,33 @@ processed_YYYYMMDD_HHMMSS.csv
 dump_YYYYMMDD_HHMMSS.txt
 ```
 
-- embedding에는 `processed_*.csv`만 사용
+- embedding 시에는 `processed_*.csv`만 사용
 
 ## Embedding 실행
 
-- `papagei_embedding.py` 상단 경로 수정
-
-```python
-PROCESSED_CSV = r"D:/2026/test/data/processed_20260414_190911.csv"
-PAPAGEI_REPO = r"D:/2026/test/papagei-foundation-model"
-WEIGHT_PATH = r"D:/2026/test/weights/papagei_p.pt"
-OUT_FILE = r"D:/2026/test/data/papagei_embeddings.npz"
-MODEL_TYPE = "p"
-```
+- `papagei-p, papagei-s` 상단 경로 수정
 
 - 실행
 
 ```bash
-python papagei_embedding.py
+python papagei-p.py
+혹은
+python papagei-s.py
 ```
 
 ## Output
 
-- `OUT_FILE`에 지정한 `.npz` 파일 생성
-
-```text
-papagei_embeddings.npz
-```
+- `OUTPUT`에 지정한 `.npz` 파일 생성
 
 - 저장 값
 
 ```text
 embeddings
-timestamps
-window_indices
 ```
 
 - `embeddings`
   - PaPaGEI embedding
   - shape: `(N, 512)`
-
-- `timestamps`
-  - 각 window의 `window_end_ts`
-
-- `window_indices`
-  - 각 window의 index
 
 ## 데이터 
 
